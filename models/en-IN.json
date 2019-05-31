@@ -1,0 +1,197 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "bangalore greeter",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "WelcomeIntent",
+                  "slots": [
+                      {
+                          "name": "name",
+                          "type": "AMAZON.FirstName",
+                          "samples": [
+                              "my name is {name}",
+                              "{name}"
+                          ]
+                      },
+                      {
+                          "name": "zone",
+                          "type": "ZONAL_AREA",
+                          "samples": [
+                              "{zone}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "i belong to {zone}",
+                      "{zone}",
+                      "my name is {name}",
+                      "{name}"
+                  ]
+              },
+              {
+                  "name": "AMAZON.MoreIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateSettingsIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NextIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.PageUpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.PageDownIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.PreviousIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ScrollRightIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ScrollDownIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ScrollLeftIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.ScrollUpIntent",
+                  "samples": []
+              }
+          ],
+          "types": [
+              {
+                  "name": "ZONAL_AREA",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "west"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "east"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "south"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "north"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "WelcomeIntent",
+                  "delegationStrategy": "SKILL_RESPONSE",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "name",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.232966450415.554668844866"
+                          }
+                      },
+                      {
+                          "name": "zone",
+                          "type": "ZONAL_AREA",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.1485997674675.1034234220101"
+                          },
+                          "validations": [
+                              {
+                                  "type": "hasEntityResolutionMatch",
+                                  "prompt": "Slot.Validation.315013233454.1410553539157.212147254022"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.232966450415.554668844866",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Please tell me your name?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.232966450415.297683450285",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "which part of bangalore you stay in?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.1485997674675.1034234220101",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "which part of bangalore you stay in?"
+                  }
+              ]
+          },
+          {
+              "id": "Slot.Validation.315013233454.1410553539157.212147254022",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "you can choose either North, South, East or West"
+                  }
+              ]
+          }
+      ]
+  }
+}
